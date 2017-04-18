@@ -1,11 +1,14 @@
 rm(list=ls())
 cat("\014")
 
-library(shiny)
-library(ggplot2)
-library(reshape2)
-library(RColorBrewer)
-library(plotly)
+load_package <- function(package_name){
+  if(package_name %in% rownames(installed.packages()) == FALSE) {install.packages(package_name)}
+}
+
+load_package('shiny'); library(shiny)
+load_package('ggplot2'); library(ggplot2)
+load_package('reshape2'); library(reshape2)
+load_package('RColorBrewer'); library(RColorBrewer)
 
 ui <- fluidPage(
   headerPanel('Life Expectancy vs Fertility Rate'),
